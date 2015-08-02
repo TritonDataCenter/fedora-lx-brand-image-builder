@@ -1,0 +1,6 @@
+[submodule "guesttools"]
+	path = guesttools
+	url = https://github.com/joyent/sdc-vmtools-lx-brand.git
+[submodule "sdc-vmtools"]
+	path = sdc-vmtools
+	url = https://github.com/joyent/sdc-vmtools
