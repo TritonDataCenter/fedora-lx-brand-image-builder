@@ -143,11 +143,20 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 # Check if we already imported the signing key: https://getfedora.org/keys/
 # pub  4096R/8E1431D5 2014-07-09 Fedora (22) <fedora@fedoraproject.org>
 #  Key fingerprint = C527 EA07 A934 9B58 9C35 E1BF 11AD C094 8E14 31D5
+#
+# pub  4096R/A29CB19C 2014-07-09 Fedora Secondary (22) <fedora@fedoraproject.org>
+#  Key fingerprint = B467 FA46 E2CE 5FAC 3499 10C2 D8D1 FA8C A29C B19C
 set +e 
 gpg --list-keys | grep 4096R/8E1431D5 > /dev/null
 if [[ $? -gt 0 ]]; then
     echo "Adding gpg signing keys"
     gpg --keyserver pool.sks-keyservers.net --recv-keys C527EA07A9349B589C35E1BF11ADC0948E1431D5
+fi
+
+gpg --list-keys | grep 4096R/A29CB19C > /dev/null
+if [[ $? -gt 0 ]]; then
+    echo "Adding gpg signing keys"
+    gpg --keyserver pool.sks-keyservers.net --recv-keys B467FA46E2CE5FAC349910C2D8D1FA8CA29CB19C
 fi
 set -e
 
