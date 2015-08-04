@@ -150,14 +150,14 @@ set +e
 rpm -qa | grep -i gpg | grep 8e1431d5 > /dev/null
 if [[ $? -gt 0 ]]; then
     echo "Adding gpg signing keys 4096R/8E1431D5"
-    curl -SL https://getfedora.org/static/8E1431D5.txt
+    curl -SLO https://getfedora.org/static/8E1431D5.txt
     rpm --import 8E1431D5.txt
 fi
 
 gpg --list-keys | grep a29cb19c > /dev/null
 if [[ $? -gt 0 ]]; then
     echo "Adding gpg signing keys 4096R/A29CB19C"
-    curl -SL https://getfedora.org/static/A29CB19C.txt
+    curl -SLO https://getfedora.org/static/A29CB19C.txt
     rpm --import A29CB19C.txt
 fi
 set -e
