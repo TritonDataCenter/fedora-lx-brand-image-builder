@@ -147,16 +147,18 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 # pub  4096R/A29CB19C 2014-07-09 Fedora Secondary (22) <fedora@fedoraproject.org>
 #  Key fingerprint = B467 FA46 E2CE 5FAC 3499 10C2 D8D1 FA8C A29C B19C
 set +e 
-gpg --list-keys | grep 4096R/8E1431D5 > /dev/null
+rpm -qa | grep -i gpg | grep 8e1431d5 > /dev/null
 if [[ $? -gt 0 ]]; then
-    echo "Adding gpg signing keys"
-    gpg --keyserver pool.sks-keyservers.net --recv-keys C527EA07A9349B589C35E1BF11ADC0948E1431D5
+    echo "Adding gpg signing keys 4096R/8E1431D5"
+    curl -SL https://getfedora.org/static/8E1431D5.txt
+    rpm --import 8E1431D5.txt
 fi
 
-gpg --list-keys | grep 4096R/A29CB19C > /dev/null
+gpg --list-keys | grep a29cb19c > /dev/null
 if [[ $? -gt 0 ]]; then
-    echo "Adding gpg signing keys"
-    gpg --keyserver pool.sks-keyservers.net --recv-keys B467FA46E2CE5FAC349910C2D8D1FA8CA29CB19C
+    echo "Adding gpg signing keys 4096R/A29CB19C"
+    curl -SL https://getfedora.org/static/A29CB19C.txt
+    rpm --import A29CB19C.txt
 fi
 set -e
 
