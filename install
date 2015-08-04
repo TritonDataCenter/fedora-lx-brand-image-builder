@@ -168,8 +168,8 @@ echo "==> Installing rpm package..."
 rpm -i --root=$INSTALL_DIR --nodeps /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing @core packages..."
-yum --installroot=$INSTALL_DIR --setopt=tsflags=nodocs \
-    --setopt=group_package_types=mandatory -y groupinstall "minimal install"
+#yum --installroot=$INSTALL_DIR --setopt=tsflags=nodocs \
+#    --setopt=group_package_types=mandatory -y groupinstall "minimal install"
 
 echo "==> Installing additional packages..."
 yum --installroot=$INSTALL_DIR --setopt=tsflags=nodocs install -y less man openssh-clients sudo vim-minimal which wget
