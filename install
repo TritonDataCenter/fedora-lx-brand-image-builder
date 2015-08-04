@@ -138,7 +138,7 @@ rpm --rebuilddb --root=$INSTALL_DIR
 echo "==> Getting $RELEASE_PACKAGE..."
 wget -O /var/tmp/$RELEASE_PACKAGE $MIRROR/$RELEASE_PACKAGE
 
-echo "==> Veryfying $RELEASE_PACKAGE..."
+echo "==> Verifying $RELEASE_PACKAGE..."
 rpm -K /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing rpm package..."
