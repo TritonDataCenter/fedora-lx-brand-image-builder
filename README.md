@@ -13,7 +13,7 @@ In order to use these scripts you'll need:
 
 ### Create a Fedora install tarball via the `install` script
 
-On a Fedora or CentOS machine, do the following:
+On a Fedora machine, do the following:
 
 1. Clone this repo to your Fedora machine: `git clone https://github.com/joyent/fedora-lx-brand-image-builder`
 2. Change to the repo directoru: `cd fedora-lx-brand-image-builder`
