@@ -139,6 +139,18 @@ echo "==> Getting $RELEASE_PACKAGE..."
 wget -O /var/tmp/$RELEASE_PACKAGE $MIRROR/$RELEASE_PACKAGE
 
 echo "==> Verifying $RELEASE_PACKAGE..."
+
+# Check if we already imported the signing key: https://getfedora.org/keys/
+# pub  4096R/8E1431D5 2014-07-09 Fedora (22) <fedora@fedoraproject.org>
+#  Key fingerprint = C527 EA07 A934 9B58 9C35 E1BF 11AD C094 8E14 31D5
+set +e 
+gpg --list-keys | grep 4096R/8E1431D5 > /dev/null
+if [[ $? -gt 0 ]]; then
+    echo "Adding gpg signing keys"
+    gpg --keyserver pool.sks-keyservers.net --recv-keys C527EA07A9349B589C35E1BF11ADC0948E1431D5
+fi
+set -e
+
 rpm -K /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing rpm package..."
