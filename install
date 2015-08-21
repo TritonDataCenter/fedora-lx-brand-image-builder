@@ -162,7 +162,7 @@ if [[ $? -gt 0 ]]; then
 fi
 set -e
 
-#rpm -K /var/tmp/$RELEASE_PACKAGE
+rpm -K /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing rpm package..."
 dnf --installroot=$INSTALL_DIR install /var/tmp/$RELEASE_PACKAGE
