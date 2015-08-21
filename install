@@ -133,7 +133,7 @@ if [[ -d $INSTALL_DIR ]]; then
   mkdir -p $INSTALL_DIR/var/lib/rpm
 fi
 
-rpm --rebuilddb --root=$INSTALL_DIR
+rpm --root=$INSTALL_DIR --initdb
 
 echo "==> Getting $RELEASE_PACKAGE..."
 wget -O /var/tmp/$RELEASE_PACKAGE $MIRROR/$RELEASE_PACKAGE
