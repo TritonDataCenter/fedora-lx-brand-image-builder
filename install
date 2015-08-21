@@ -172,10 +172,10 @@ echo "==> Installing @core packages..."
 #    --setopt=group_package_types=mandatory -y groupinstall "minimal install"
 
 echo "==> Installing additional packages..."
-yum --installroot=$INSTALL_DIR --setopt=tsflags=nodocs install -y less man openssh-clients sudo vim-minimal which wget
+dnf --installroot=$INSTALL_DIR --setopt=tsflags=nodocs install -y less man openssh-clients sudo vim-minimal which wget
 
 echo "==> Cleaning up yum cache..."
-yum --installroot=$INSTALL_DIR clean all
+dnf --installroot=$INSTALL_DIR clean all
 
 echo "==> Removing /var/tmp/$RELEASE_PACKAGE"
 rm -rf /var/tmp/$RELEASE_PACKAGE
