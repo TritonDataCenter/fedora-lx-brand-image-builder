@@ -37,6 +37,7 @@ EOF
 
 INSTALL_DIR=
 MIRROR=
+RELEASE=22
 RELEASE_PACKAGE=
 IMAGE_NAME=
 NAME=
@@ -165,7 +166,7 @@ set -e
 rpm -K /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing $RELEASE_PACKAGE..."
-dnf --installroot=$INSTALL_DIR install /var/tmp/$RELEASE_PACKAGE
+dnf --installroot=$INSTALL_DIR --releasever=$RELEASE install /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing Minimal Install group..."
 dnf --installroot=$INSTALL_DIR install -y group "Minimal Install"
