@@ -168,8 +168,8 @@ rpm -K /var/tmp/$RELEASE_PACKAGE
 echo "==> Installing $RELEASE_PACKAGE..."
 dnf --installroot=$INSTALL_DIR --releasever=$RELEASE install -y /var/tmp/$RELEASE_PACKAGE
 
-echo "==> Installing Core group..."
-dnf --installroot=$INSTALL_DIR install -y group "Core"
+echo "==> Installing Minimal Install group..."
+dnf --installroot=$INSTALL_DIR -y group install group "Minimal Install"
 
 echo "==> Installing additional packages..."
 dnf --installroot=$INSTALL_DIR --setopt=tsflags=nodocs install -y less man openssh-clients sudo vim-minimal which wget
