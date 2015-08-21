@@ -20,7 +20,7 @@ Usage:
   $0 -d <INSTALL_DIR> -m <MIRROR> -r <RELEASE_PACKAGE> -i <IMAGE_NAME> -p <NAME> -D <DESC> -u <DOCS>
 
 Example:
-  $0 -d /data/chroot -m http://fedora.bhs.mirrors.ovh.net/linux/releases/22/Server/x86_64/os/Packages/f -r fedora-release-server-22-1.noarch.rpm -i fedora-22 -p "Fedora 22 LX Brand" -D "Fedora 64-bit lx-brand image." -u https://docs.joyent.com/images/lx-brand-beta
+  $0 -d /data/chroot -m http://fedora.bhs.mirrors.ovh.net/linux/releases/22/Server/x86_64/os/Packages/f -r fedora-release-22-1.noarch.rpm -i fedora-22 -p "Fedora 22 LX Brand" -D "Fedora 64-bit lx-brand image." -u https://docs.joyent.com/images/lx-brand-beta
 
 OPTIONS:
   -d A path to the install directory
@@ -167,8 +167,8 @@ rpm -K /var/tmp/$RELEASE_PACKAGE
 echo "==> Installing rpm package..."
 rpm -i --root=$INSTALL_DIR --nodeps /var/tmp/$RELEASE_PACKAGE
 
-echo "==> Installing @core packages..."
-dnf --installroot=$INSTALL_DIR -y install group "Minimal Install"
+echo "==> Installing Minimal Install group..."
+dnf --installroot=$INSTALL_DIR install -y group "Minimal Install"
 
 echo "==> Installing additional packages..."
 dnf --installroot=$INSTALL_DIR --setopt=tsflags=nodocs install -y less man openssh-clients sudo vim-minimal which wget
