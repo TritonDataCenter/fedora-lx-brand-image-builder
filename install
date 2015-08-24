@@ -59,7 +59,7 @@ do
       MIRROR=${OPTARG}
       ;;
     R)
-      RELEASE_PACKAGE=${OPTARG}
+      RELEASE=${OPTARG}
       ;;
     r)
       RELEASE_PACKAGE=${OPTARG}
