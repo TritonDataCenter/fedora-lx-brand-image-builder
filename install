@@ -177,7 +177,7 @@ dnf --installroot=$INSTALL_DIR --setopt=tsflags=nodocs install -y less man opens
 echo "==> Updating packages..."
 dnf --installroot=$INSTALL_DIR -y update
 
-echo "==> Cleaning up yum cache..."
+echo "==> Cleaning up dnf cache..."
 dnf --installroot=$INSTALL_DIR clean all
 
 echo "==> Removing /var/tmp/$RELEASE_PACKAGE"
