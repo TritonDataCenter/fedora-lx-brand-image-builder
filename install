@@ -169,9 +169,10 @@ KEYS=( 95A43F54 8E1431D5 34EC9CBA 81B46521 )
 for KEY in ${KEYS[@]}; do
   rpm -qa | grep -i gpg | grep -i $KEY > /dev/null
   if [[ $? -gt 0 ]]; then
-      echo "Adding gpg signing keys $KEY"
+      echo "===> Adding gpg signing keys $KEY"
       curl -SLO https://getfedora.org/static/$KEY.txt
       rpm --import $KEY.txt
+      rm -rf $KEY.txt
   fi
 done
 set -e
