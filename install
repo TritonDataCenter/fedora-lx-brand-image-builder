@@ -158,7 +158,7 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 #  Key fingerprint = C527 EA07 A934 9B58 9C35 E1BF 11AD C094 8E14 31D5
 
 set +e
-KEYS=( 95A43F54 8e1431d5 a29cb19c )
+KEYS=( 95A43F54 8e1431d5 )
 
 for KEY in ${KEYS[@]}; do
   rpm -qa | grep -i gpg | grep $KEY > /dev/null
