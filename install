@@ -160,25 +160,16 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 # pub  4096R/A29CB19C 2014-07-09 Fedora Secondary (22) <fedora@fedoraproject.org>
 #  Key fingerprint = B467 FA46 E2CE 5FAC 3499 10C2 D8D1 FA8C A29C B19C
 set +e
-rpm -qa | grep -i gpg | grep 95A43F54 > /dev/null
-if [[ $? -gt 0 ]]; then
-    echo "Adding gpg signing keys 4096R/95A43F54"
-    curl -SLO https://getfedora.org/static/95A43F54.txt
-    rpm --import 95A43F54.txt
-fi
-rpm -qa | grep -i gpg | grep 8e1431d5 > /dev/null
-if [[ $? -gt 0 ]]; then
-    echo "Adding gpg signing keys 4096R/8E1431D5"
-    curl -SLO https://getfedora.org/static/8E1431D5.txt
-    rpm --import 8E1431D5.txt
-fi
+KEYS=( 95A43F54 8e1431d5 a29cb19c )
 
-rpm -qa | grep -i gpg | grep a29cb19c > /dev/null
-if [[ $? -gt 0 ]]; then
-    echo "Adding gpg signing keys 4096R/A29CB19C"
-    curl -SLO https://getfedora.org/static/A29CB19C.txt
-    rpm --import A29CB19C.txt
-fi
+for KEY in ${KEYS[@]}; do
+  rpm -qa | grep -i gpg | grep $KEY > /dev/null
+  if [[ $? -gt 0 ]]; then
+      echo "Adding gpg signing keys $KEY"
+      curl -SLO https://getfedora.org/static/$KEY.txt
+      rpm --import $KEY.txt
+  fi
+done
 set -e
 
 rpm -K /var/tmp/$RELEASE_PACKAGE
