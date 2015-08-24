@@ -151,6 +151,13 @@ wget -O /var/tmp/$RELEASE_PACKAGE $MIRROR/$RELEASE_PACKAGE
 echo "==> Verifying $RELEASE_PACKAGE..."
 
 # Check if we already imported the signing key: https://getfedora.org/keys/
+#
+# pub  4096R/FB4B18E6 2012-12-01 Fedora (19) <fedora@fedoraproject.org>
+#  Key fingerprint = CA81 B2C8 5E4F 4D4A 1A3F 7234 0747 7E65 FB4B 18E6
+#
+# pub  4096R/246110C1 2013-05-16 Fedora (20) <fedora@fedoraproject.org>
+#  Key fingerprint = C7C9 A9C8 9153 F201 83CE 7CBA 2EB1 61FA 2461 10C1
+#
 # pub  4096R/95A43F54 2013-11-14 Fedora (21) <fedora@fedoraproject.org>
 #  Key fingerprint = 6596 B8FB ABDA 5227 A9C5 B59E 89AD 4E87 95A4 3F54
 #
@@ -164,7 +171,7 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 #  Key fingerprint = 5048 BDBB A5E7 76E5 47B0 9CCC 73BD E983 81B4 6521
 
 set +e
-KEYS=( 95A43F54 8E1431D5 34EC9CBA 81B46521 )
+KEYS=( FB4B18E6 246110C1 95A43F54 8E1431D5 34EC9CBA 81B46521 )
 
 for KEY in ${KEYS[@]}; do
   rpm -qa | grep -i gpg | grep -i $KEY > /dev/null
