@@ -146,7 +146,7 @@ fi
 rpm --root=$INSTALL_DIR --initdb
 
 echo "==> Getting $RELEASE_PACKAGE..."
-wget -O /var/tmp/$RELEASE_PACKAGE $MIRROR/$RELEASE_PACKAGE
+curl -o /var/tmp/$RELEASE_PACKAGE $MIRROR/$RELEASE_PACKAGE
 
 echo "==> Verifying $RELEASE_PACKAGE..."
 
