@@ -164,10 +164,10 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 #  Key fingerprint = 5048 BDBB A5E7 76E5 47B0 9CCC 73BD E983 81B4 6521
 
 set +e
-KEYS=( 95A43F54 8e1431d5 34ec9cba )
+KEYS=( 95A43F54 8E1431D5 34EC9CBA 81B46521 )
 
 for KEY in ${KEYS[@]}; do
-  rpm -qa | grep -i gpg | grep $KEY > /dev/null
+  rpm -qa | grep -i gpg | grep -i $KEY > /dev/null
   if [[ $? -gt 0 ]]; then
       echo "Adding gpg signing keys $KEY"
       curl -SLO https://getfedora.org/static/$KEY.txt
