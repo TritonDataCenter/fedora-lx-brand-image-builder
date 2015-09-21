@@ -214,6 +214,9 @@ cp $INSTALL_DIR/usr/share/zoneinfo/UTC $INSTALL_DIR/etc/localtime
 echo "==> Disabling PasswordAuthentication"
 sed s/PasswordAuthentication\ yes/PasswordAuthentication\ no/ -i $INSTALL_DIR/etc/ssh/sshd_config
 
+echo "==> Enabling UsePrivilegeSeparation (default is 'sandbox')"
+sed s/UsePrivilegeSeparation\ sandbox/UsePrivilegeSeparation\ yes/ -i $INSTALL_DIR/etc/ssh/sshd_config
+
 echo "==> Creating /etc/motd"
 cat << MOTD > $INSTALL_DIR/etc/motd
    __        .                   .
