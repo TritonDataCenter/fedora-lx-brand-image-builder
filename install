@@ -193,7 +193,7 @@ echo "==> Installing Minimal Install group..."
 dnf --installroot=$INSTALL_DIR group -y install "Minimal Install"
 
 echo "==> Installing additional packages..."
-dnf --installroot=$INSTALL_DIR install -y less man openssh-clients rsyslog sudo vim which wget
+dnf --installroot=$INSTALL_DIR install -y gettext less man openssh-clients rsyslog sudo vim which wget
 
 echo "==> Updating packages..."
 dnf --installroot=$INSTALL_DIR -y update
