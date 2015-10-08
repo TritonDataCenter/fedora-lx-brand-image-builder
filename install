@@ -160,6 +160,9 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 #
 # pub  4096R/95A43F54 2013-11-14 Fedora (21) <fedora@fedoraproject.org>
 #  Key fingerprint = 6596 B8FB ABDA 5227 A9C5 B59E 89AD 4E87 95A4 3F54
+
+# pub  4096R/A0A7BADB 2013-11-14 Fedora Secondary (21) <fedora@fedoraproject.org>
+#  Key fingerprint = 9996 E55F A5D4 18C8 6CEF F750 636D EA19 A0A7 BADB
 #
 # pub  4096R/8E1431D5 2014-07-09 Fedora (22) <fedora@fedoraproject.org>
 #  Key fingerprint = C527 EA07 A934 9B58 9C35 E1BF 11AD C094 8E14 31D5
@@ -171,7 +174,7 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 #  Key fingerprint = 5048 BDBB A5E7 76E5 47B0 9CCC 73BD E983 81B4 6521
 
 set +e
-KEYS=( FB4B18E6 246110C1 95A43F54 8E1431D5 34EC9CBA 81B46521 )
+KEYS=( FB4B18E6 246110C1 95A43F54 A0A7BADB 8E1431D5 34EC9CBA 81B46521 )
 
 for KEY in ${KEYS[@]}; do
   rpm -qa | grep -i gpg | grep -i $KEY > /dev/null
