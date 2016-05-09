@@ -214,6 +214,31 @@ fi
 
 cp $INSTALL_DIR/usr/share/zoneinfo/UTC $INSTALL_DIR/etc/localtime
 
+# Systemd overrides for systemd-timedated and systemd-hostnamed
+#
+# See:
+#   - https://github.com/joyent/centos-lx-brand-image-builder/issues/5
+#   - https://smartos.org/bugview/OS-5304
+#
+# TODO: This should be removed when the relevant cgroup etc support is in
+# the platform.
+SERVICES=( systemd-timedated systemd-hostnamed )
+echo "==> Adding systemd overrides for: ${SERVICES[@]}"
+
+for SERVICE in ${SERVICES[@]}; do
+  OVERRIDE_DIR=$INSTALL_DIR/etc/systemd/system/${SERVICE}.service.d
+  mkdir -p $OVERRIDE_DIR
+
+  cat << OVERRIDE > ${OVERRIDE_DIR}/override.conf
+[Service]
+PrivateTmp=no
+PrivateDevices=no
+PrivateNetwork=no
+ProtectSystem=no
+ProtectHome=no
+OVERRIDE
+done
+
 echo "==> Disabling PasswordAuthentication"
 sed s/PasswordAuthentication\ yes/PasswordAuthentication\ no/ -i $INSTALL_DIR/etc/ssh/sshd_config
 
