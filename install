@@ -242,6 +242,19 @@ ProtectHome=no
 OVERRIDE
 done
 
+SERVICES=( httpd )
+echo "==> Adding systemd overrides for: ${SERVICES[@]}"
+
+for SERVICE in ${SERVICES[@]}; do
+  OVERRIDE_DIR=$INSTALL_DIR/etc/systemd/system/${SERVICE}.service.d
+  mkdir -p $OVERRIDE_DIR
+
+  cat << OVERRIDE > ${OVERRIDE_DIR}/override.conf
+[Service]
+PrivateTmp=no
+OVERRIDE
+done
+
 echo "==> Disabling PasswordAuthentication"
 echo "" >> $INSTALL_DIR/etc/ssh/sshd_config
 echo "PasswordAuthentication no" >> $INSTALL_DIR/etc/ssh/sshd_config
