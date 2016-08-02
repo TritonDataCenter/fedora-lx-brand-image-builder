@@ -214,6 +214,9 @@ fi
 
 cp $INSTALL_DIR/usr/share/zoneinfo/UTC $INSTALL_DIR/etc/localtime
 
+echo "==> Setting locale to en_US.UTF-8"
+echo "LANG=\"en_US.UTF-8\"" > $INSTALL_DIR/etc/locale.conf
+
 # Systemd overrides for systemd-timedated and systemd-hostnamed
 #
 # See:
