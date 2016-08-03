@@ -225,7 +225,7 @@ echo "LANG=\"en_US.UTF-8\"" > $INSTALL_DIR/etc/locale.conf
 #
 # TODO: This should be removed when the relevant cgroup etc support is in
 # the platform.
-SERVICES=( systemd-hostnamed systemd-localed systemd-timedated )
+SERVICES=( systemd-hostnamed systemd-localed systemd-timedated timedatex )
 echo "==> Adding systemd overrides for: ${SERVICES[@]}"
 
 for SERVICE in ${SERVICES[@]}; do
