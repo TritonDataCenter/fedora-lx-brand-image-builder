@@ -197,7 +197,6 @@ dnf --installroot=$INSTALL_DIR \
       --setopt=group_package_types=default,mandatory \
       --exclude=dracut-config-rescue \
       --exclude=plymouth \
-      --exclude=*-kerneloops \
       group -y install "Fedora Server Edition"
 
 echo "==> Installing additional packages..."
