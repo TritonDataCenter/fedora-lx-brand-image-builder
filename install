@@ -196,7 +196,7 @@ echo "==> Installing Fedora Server Edition group..."
 dnf --installroot=$INSTALL_DIR group -y install "Fedora Server Edition"
 
 echo "==> Installing additional packages..."
-dnf --installroot=$INSTALL_DIR install -y gettext
+dnf --installroot=$INSTALL_DIR install -y gettext vim-enhanced
 
 echo "==> Updating packages..."
 dnf --installroot=$INSTALL_DIR -y update
