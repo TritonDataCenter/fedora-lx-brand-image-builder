@@ -193,7 +193,7 @@ echo "==> Installing $RELEASE_PACKAGE..."
 dnf --installroot=$INSTALL_DIR --releasever=$RELEASE install -y /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing Fedora Server Edition group..."
-dnf --installroot=$INSTALL_DIR /
+dnf --installroot=$INSTALL_DIR \
       --setopt=group_package_types=default,mandatory \
       --exclude=dracut-config-rescue \
       --exclude=plymouth \
