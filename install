@@ -193,7 +193,11 @@ echo "==> Installing $RELEASE_PACKAGE..."
 dnf --installroot=$INSTALL_DIR --releasever=$RELEASE install -y /var/tmp/$RELEASE_PACKAGE
 
 echo "==> Installing Fedora Server Edition group..."
-dnf --installroot=$INSTALL_DIR group -y install "Fedora Server Edition"
+dnf --installroot=$INSTALL_DIR /
+      --setopt=group_package_types=default,mandatory \
+      --exclude=plymouth \
+      --exclude=*-kerneloops \
+      group -y install "Fedora Server Edition"
 
 echo "==> Installing additional packages..."
 dnf --installroot=$INSTALL_DIR install -y gettext vim-enhanced
