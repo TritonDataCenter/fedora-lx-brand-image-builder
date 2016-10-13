@@ -198,6 +198,8 @@ dnf --installroot=$INSTALL_DIR \
       --exclude=abrt-addon* \
       --exclude=abrt-cli \
       --exclude=dracut-config-rescue \
+      --exclude=kernel-devel \
+      --exclude=kernel-headers \
       --exclude=plymouth \
       group -y install "Fedora Server Edition"
 
