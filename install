@@ -200,7 +200,7 @@ dnf --installroot=$INSTALL_DIR \
       --exclude=dracut-config-rescue \
       --exclude=kernel-devel \
       --exclude=kernel-headers \
-      --exclude=plymouth \
+      --exclude=plymouth* \
       group -y install "Fedora Server Edition"
 
 echo "==> Installing additional packages..."
