@@ -196,6 +196,7 @@ echo "==> Installing Fedora Server Edition group..."
 dnf --installroot=$INSTALL_DIR \
       --setopt=group_package_types=default,mandatory \
       --exclude=abrt-addon* \
+      --exclude=abrt-cli \
       --exclude=dracut-config-rescue \
       --exclude=plymouth \
       group -y install "Fedora Server Edition"
