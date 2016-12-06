@@ -152,29 +152,20 @@ echo "==> Verifying $RELEASE_PACKAGE..."
 
 # Check if we already imported the signing key: https://getfedora.org/keys/
 #
-# pub  4096R/FB4B18E6 2012-12-01 Fedora (19) <fedora@fedoraproject.org>
-#  Key fingerprint = CA81 B2C8 5E4F 4D4A 1A3F 7234 0747 7E65 FB4B 18E6
-#
-# pub  4096R/246110C1 2013-05-16 Fedora (20) <fedora@fedoraproject.org>
-#  Key fingerprint = C7C9 A9C8 9153 F201 83CE 7CBA 2EB1 61FA 2461 10C1
-#
-# pub  4096R/95A43F54 2013-11-14 Fedora (21) <fedora@fedoraproject.org>
-#  Key fingerprint = 6596 B8FB ABDA 5227 A9C5 B59E 89AD 4E87 95A4 3F54
-
-# pub  4096R/A0A7BADB 2013-11-14 Fedora Secondary (21) <fedora@fedoraproject.org>
-#  Key fingerprint = 9996 E55F A5D4 18C8 6CEF F750 636D EA19 A0A7 BADB
-#
-# pub  4096R/8E1431D5 2014-07-09 Fedora (22) <fedora@fedoraproject.org>
-#  Key fingerprint = C527 EA07 A934 9B58 9C35 E1BF 11AD C094 8E14 31D5
-#
 # pub  4096R/34EC9CBA 2015-02-17 Fedora (23) <fedora-23-primary@fedoraproject.org>
 #  Key fingerprint = EF45 5106 80FB 0232 6B04 5AFB 3247 4CF8 34EC 9CBA
 #
 # pub  4096R/81B46521 2015-07-25 Fedora (24) <fedora-24-primary@fedoraproject.org>
 #  Key fingerprint = 5048 BDBB A5E7 76E5 47B0 9CCC 73BD E983 81B4 6521
+#
+# pub  4096R/FDB19C98 2016-03-31 Fedora (25) <fedora-25-primary@fedoraproject.org>
+#  Key fingerprint = C437 DCCD 558A 66A3 7D6F 4372 4089 D8F2 FDB1 9C98
+#
+# pub  4096R/64DAB85D 2016-09-09 Fedora (26) <fedora-26-primary@fedoraproject.org>
+#  Key fingerprint = E641 850B 77DF 4353 78D1 D7E2 812A 6B4B 64DA B85D
 
 set +e
-KEYS=( FB4B18E6 246110C1 95A43F54 A0A7BADB 8E1431D5 34EC9CBA 81B46521 )
+KEYS=( 34EC9CBA 81B46521 FDB19C98 64DAB85D )
 
 for KEY in ${KEYS[@]}; do
   rpm -qa | grep -i gpg | grep -i $KEY > /dev/null
