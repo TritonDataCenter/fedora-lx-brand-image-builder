@@ -169,7 +169,8 @@ set +e
 KEYS=( 34EC9CBA 81B46521 FDB19C98 64DAB85D )
 
 for KEY in ${KEYS[@]}; do
-  rpm -qa | grep -i gpg | grep -i $KEY > /dev/null
+  # ${VAR_NAME,,} converts to lowercase
+  rpm -qi gpg-pubkey-${KEY,,} > /dev/null
   if [[ $? -gt 0 ]]; then
       echo "===> Adding gpg signing keys $KEY"
       curl -sSLO https://getfedora.org/static/$KEY.txt
