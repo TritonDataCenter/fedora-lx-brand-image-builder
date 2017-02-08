@@ -22,53 +22,53 @@ cat <<EOF
 Create an lx brand Fedora image from a given tar file
 
 Usage:
-  $0 -t <TARBALL> -k <KERNEL> -m <MIN_PLATFORM> -i <IMAGE_NAME> -d <DESC> -u <DOCS>
+	$0 -t <TARBALL> -k <KERNEL> -m <MIN_PLATFORM> -i <IMAGE_NAME> -d <DESC> -u <DOCS>
 
 Example:
-  $0 -t /var/tmp/fedora-22-20150801.tar.gz -k 2.6.32 -m 20150801T201553Z -i fedora-22 -d "Fedora 22 64-bit lx-brand image." -u https://docs.joyent.com/images/container-native-linux
+	$0 -t /var/tmp/fedora-22-20150801.tar.gz -k 2.6.32 -m 20150801T201553Z -i fedora-22 -d "Fedora 22 64-bit lx-brand image." -u https://docs.joyent.com/images/container-native-linux
 
 OPTIONS:
-  -t The full path to the tar archive
-  -k The kernel version
-  -m The minimum platform required for the image
-  -i The name of the image as it would appear in the manifest
-  -d The description of the image as it would appear in the manifest
-  -u The homepage link of the image as it would appear in the manifest
-  -h Show this message
+	-t The full path to the tar archive
+	-k The kernel version
+	-m The minimum platform required for the image
+	-i The name of the image as it would appear in the manifest
+	-d The description of the image as it would appear in the manifest
+	-u The homepage link of the image as it would appear in the manifest
+	-h Show this message
 
 EOF
 }
 
 while getopts "ht:k:m:i:d:u:" OPTION
 do
-  case $OPTION in
-    h)
-      usage
-      exit 1
-      ;;
-    t)
-      TARBALL=${OPTARG}
-      ;;
-    k)
-      KERNEL=${OPTARG}
-      ;;
-    m)
-      MIN_PLATFORM=${OPTARG}
-      ;;
-    i)
-      IMAGE_NAME=${OPTARG}
-      ;;
-    d)
-      DESC=${OPTARG}
-      ;;
-    u)
-      DOCS=${OPTARG}
-      ;;
-    ?)
-      usage
-      exit
-      ;;
-  esac
+	case $OPTION in
+		h)
+			usage
+			exit 1
+			;;
+		t)
+			TARBALL=${OPTARG}
+			;;
+		k)
+			KERNEL=${OPTARG}
+			;;
+		m)
+			MIN_PLATFORM=${OPTARG}
+			;;
+		i)
+			IMAGE_NAME=${OPTARG}
+			;;
+		d)
+			DESC=${OPTARG}
+			;;
+		u)
+			DOCS=${OPTARG}
+			;;
+		?)
+			usage
+			exit
+			;;
+	esac
 done
 
 
@@ -244,7 +244,8 @@ create_manifest() {
 show_image_files() {
   echo "*** Image creation complete ***"
   echo "==> Image files:"
-  echo "$(ls | grep $BUILD_DATE)"
+  echo "${IMAGE_NAME}-${BUILD_DATE}.json"
+	echo "${IMAGE_NAME}-${BUILD_DATE}.zfs.gz"
   echo ""
 }
 
