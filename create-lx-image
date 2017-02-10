@@ -154,7 +154,7 @@ create_dataset() {
 
 	mkdir $zpath/cores
 	chmod 755 $zpath/cores
-	å
+
 	echo "==> The dataset is zones/$IUUID"
 	echo "==>"
 }
@@ -167,7 +167,6 @@ install_tar() {
 		zfs destroy -r zones/$IUUID
 	fi
 }
-
 
 modify_image() {
 	echo "==> Modifying the image to work in a zone..."
