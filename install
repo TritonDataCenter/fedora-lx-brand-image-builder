@@ -191,6 +191,7 @@ dnf --installroot=$INSTALL_DIR \
 	--setopt=group_package_types=default,mandatory \
 	--exclude=abrt-addon* \
 	--exclude=abrt-cli \
+	--exclude=chrony \
 	--exclude=dracut-config-rescue \
 	--exclude=kernel-devel \
 	--exclude=kernel-headers \
